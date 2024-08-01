@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LoginPage.module.css';
+import styles from  "./LoginPage.module.css"
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -15,13 +15,13 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className='login-page'>
+    <div className={styles.loginPage}>
       <h1>Login</h1>
       <input
         type="text"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        placeholder="Enter your username"
+        placeholder="token"
       />
       <button onClick={handleLogin}>Login</button>
     </div>

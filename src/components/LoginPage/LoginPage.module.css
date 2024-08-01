@@ -1,4 +1,4 @@
-.login-page {
+.loginPage {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,18 +7,18 @@
     background-color: #f0f0f0;
 }
 
-.login-page h1 {
+.loginPage h1 {
     margin-bottom: 20px;
 }
 
-.login-page input {
+.loginPage input {
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-.login-page button {
+.loginPage button {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -27,6 +27,6 @@
     cursor: pointer;
 }
 
-.login-page button:hover {
+.loginPage button:hover {
     background-color: #0056b3;
 }

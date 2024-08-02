@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 const Login: React.FC = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
-  return isLoggedIn ? <Navigate to="/" /> : <LoginPage />;
+  return isLoggedIn ? <Navigate to="/" replace /> : <LoginPage />;
 };
 
 export default Login;

@@ -27,15 +27,15 @@ class AppService {
     private loadData(): AppInterface {
         return {
             mainScreen: {
-                background: "https://example.com/main-background.jpg",
+                background: "https://intelligent-shells.static.domains/Для%20Игры.jpg",
                 button: {
-                    backgroundImage: "https://example.com/button-background.jpg",
+                    backgroundImage: "https://s2.ppllstatics.com/elcorreo/www/multimedia/2024/07/22/dep-valverde-kWFE-U220780752163MSB-1200x840@El%20Correo.jpg",
                     text: "Start",
                     textColor: "#000000"
                 }
             },
             infoWindow: {
-                background: "https://example.com/info-background.jpg",
+                background: "https://intelligent-shells.static.domains/2%202.jpg",
                 text: [
                     {
                         title: "Info Title 1",
@@ -51,26 +51,26 @@ class AppService {
                     }
                 ],
                 button: {
-                    backgroundImage: "https://example.com/info-button-background.jpg",
+                    backgroundImage: "https://icdn.football-espana.net/wp-content/uploads/2024/07/Ernesto-Valverde3-630x354.jpg",
                     text: "Close",
                     textColor: "#ffffff"
                 }
             },
             gameWindow: {
-                background: "https://example.com/game-background.jpg",
-                defaultCard1: "https://example.com/default-card1.jpg",
-                defaultCard2: "https://example.com/default-card2.jpg",
+                background: "https://intelligent-shells.static.domains/3.jpg",
+                defaultCard1: "https://intelligent-shells.static.domains/2.jpg",
+                defaultCard2: "https://intelligent-shells.static.domains/1%202.jpg",
                 progressBarColor: "#ff00ff",
                 progressBarTime: 60
             },
             cards: {
                 firstPool: [
-                    { id: "1", url: "https://example.com/card1.jpg" },
-                    { id: "2", url: "https://example.com/card2.jpg" }
+                    { id: "1", url: "https://intelligent-shells.static.domains/1.jpg" },
+                    { id: "2", url: "https://intelligent-shells.static.domains/32.jpg" }
                 ],
                 secondPool: [
-                    { id: "1", url: "https://example.com/cardA.jpg" },
-                    { id: "2", url: "https://example.com/cardB.jpg" }
+                    { id: "1", url: "https://intelligent-shells.static.domains/2%203.jpg" },
+                    { id: "2", url: "https://intelligent-shells.static.domains/4.jpg" }
                 ]
             }
         };

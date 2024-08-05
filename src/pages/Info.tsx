@@ -4,7 +4,7 @@ import FullPageLink from '../components/FullPageLink/FullPageLink';
 
 const Info: React.FC = () => {
   return (
-    <FullPageLink to="/">
+    <FullPageLink to="/game">
       <InfoPage />
     </FullPageLink>
   );

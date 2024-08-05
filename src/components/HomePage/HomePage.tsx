@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from "./HomePage.module.css";
-import { AppInterface } from '../../types/AppInterfaces'; // Import your AppInterface if needed
 import { useNavigate } from 'react-router-dom';
+import useSavedData from '../../hooks/useSavedData'; // Импортируйте ваш кастомный хук
 
 const HomePage: React.FC = () => {
-  const [data, setData] = useState<AppInterface | null>(null);
+  const { data, isLoading, error } = useSavedData();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const savedData = localStorage.getItem("appServiceState");
-    if (savedData) {
-      try {
-        const parsedData: AppInterface = JSON.parse(savedData);
-        setData(parsedData);
-      } catch (error) {
-        console.error("Failed to parse appServiceState:", error);
-        setData(null);
-      }
-    }
-  }, []);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error loading data: {error.message}</p>;
+  }
 
   if (!data) {
     return <p>No data available</p>;
@@ -26,7 +21,7 @@ const HomePage: React.FC = () => {
 
   const toInfo = () => {
     navigate('/info');
-  }
+  };
 
   const buttonStyle = {
     backgroundImage: `url(${data.mainScreen.button.backgroundImage})`,

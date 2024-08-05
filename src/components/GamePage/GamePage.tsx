@@ -1,52 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from "./GamePage.module.css";
-import { AppInterface } from '../../types/AppInterfaces';
+import useSavedData from '../../hooks/useSavedData';
 
 const GamePage: React.FC = () => {
-  const [data, setData] = useState<AppInterface | null>(null);
+  const { data, isLoading, error } = useSavedData();
 
-  useEffect(() => {
-    const savedData = localStorage.getItem("appServiceState");
-    if (savedData) {
-      try {
-        const parsedData: AppInterface = JSON.parse(savedData);
-        setData(parsedData);
-      } catch (error) {
-        console.error("Failed to parse appServiceState:", error);
-        setData(null);
-      }
-    }
-  }, []);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error loading data: {error.message}</p>;
+  }
+
+  if (!data) {
+    return <p>No data available</p>;
+  }
 
   return (
     <div className={styles.infoPage}>
-      {data ? (
-        <>
-          <img
-            src={data.infoWindow.background}
-            alt="Background"
-            className={styles.backgroundImage}
-          />
-          <div className={styles.overlay}>
-            {data.infoWindow.text.map((element, index) => (
-              <p 
-                key={index} 
-                className={styles.text}
-                style={{color: element.contentColor}}
-              >
-                <span 
-                  style={{color: element.titleColor}}
-                >
-                  {element.title}
-                </span>
-                &nbsp;{element.content}
-              </p>
-            ))}
-          </div>
-        </>
-      ) : (
-        <p>No data available</p>
-      )}
+      <img
+        src={data.gameWindow.background}
+        alt="Background"
+        className={styles.backgroundImage}
+      />
+      <div className={styles.overlay}>
+        
+      </div>
     </div>
   );
 };

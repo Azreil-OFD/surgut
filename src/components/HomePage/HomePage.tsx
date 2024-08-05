@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from "./HomePage.module.css";
 import { AppInterface } from '../../types/AppInterfaces'; // Import your AppInterface if needed
+import { useNavigate } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
   const [data, setData] = useState<AppInterface | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const savedData = localStorage.getItem("appServiceState");
@@ -18,23 +20,35 @@ const HomePage: React.FC = () => {
     }
   }, []);
 
+  if (!data) {
+    return <p>No data available</p>;
+  }
+
+  const toInfo = () => {
+    navigate('/info');
+  }
+
+  const buttonStyle = {
+    backgroundImage: `url(${data.mainScreen.button.backgroundImage})`,
+    color: data.mainScreen.button.textColor
+  };
+
   return (
     <div className={styles.homePage}>
-      {data ? (
-        <>
-          <img
-              src={data.mainScreen.background}
-              alt="Background"
-              className={styles.backgroundImage}
-            />
-          <div className={styles.overlay}>
-            <h1>Home Page</h1>
-            {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-          </div>
-        </>
-      ) : (
-        <p>No data available</p>
-      )}
+      <img
+        src={data.mainScreen.background}
+        alt="Background"
+        className={styles.backgroundImage}
+      />
+      <div className={styles.overlay}>
+        <button
+          onClick={toInfo}
+          style={buttonStyle}
+          className={styles.customButton}
+        >
+          {data.mainScreen.button.text}
+        </button>
+      </div>
     </div>
   );
 };

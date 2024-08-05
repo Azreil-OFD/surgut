@@ -29,25 +29,31 @@ class AppService {
             mainScreen: {
                 background: "https://intelligent-shells.static.domains/Для%20Игры.jpg",
                 button: {
-                    backgroundImage: "https://s2.ppllstatics.com/elcorreo/www/multimedia/2024/07/22/dep-valverde-kWFE-U220780752163MSB-1200x840@El%20Correo.jpg",
-                    text: "Start",
-                    textColor: "#000000"
+                    backgroundImage: "https://www.somar.co.nz/assets/Uploads/Blog-Images/gradient-blog-featured__ScaleWidthWzE5MjBd.jpg",
+                    text: "НАЧАТЬ",
+                    textColor: "#ffffff"
                 }
             },
             infoWindow: {
                 background: "https://intelligent-shells.static.domains/2%202.jpg",
                 text: [
                     {
-                        title: "Info Title 1",
-                        titleColor: "#ff0000",
-                        content: "This is the first info text.",
-                        contentColor: "#00ff00"
+                        title: "НАЗВАНИЕ ИГРЫ:",
+                        titleColor: "#ffe335",
+                        content: "«СЕКРЕТЫ СУРГУТА»",
+                        contentColor: "#ffffff"
                     },
                     {
-                        title: "Info Title 2",
-                        titleColor: "#0000ff",
-                        content: "This is the second info text.",
-                        contentColor: "#ffff00"
+                        title: "ЦЕЛЬ ИГРЫ:",
+                        titleColor: "#ffe335",
+                        content: "ЗНАКОМСТВО С ГОРОДОМ И ЕГО ДОСТОПРИМЕЧАТЕЛЬНОСТЯМИ",
+                        contentColor: "#ffffff"
+                    },
+                    {
+                        title: "КАК ИГРАТЬ:",
+                        titleColor: "#ffe335",
+                        content: "\n1. БРОСАТЬ КУБИК, ДЕЛАТЬ ХОД.\n2. ЕСЛИ ХОД НА ЖЕЛТОЙ ОТМЕТКЕ, ТО БРАТЬ ПО ОДНОЙ КАРТОЧКЕ ЗА ХОД С ВОПРОСАМИ О ВСЕМ ИЗВЕСТНЫХ МЕСТАХ ГОРОДА.\n3. ИГРОКИ ДОЛЖНЫ ПЕРЕМЕЩАТЬСЯ ПО ИГРОВОМУ ПОЛЮ, ПРЕДСТАВЛЯЮЩЕМУ СОБОЙ КАРТУ ГОРОДА, И СОБИРАТЬ БОНУСЫ В ВИДЕ «СУНДУКОВ С СЕКРЕТАМИ»\n4. КАЖДАЯ КАРТОЧКА ИМЕЕТ ФАКТ, СВЯЗАННЫЙ С КОНКРЕТНОЙ ДОСТОПРИМЕЧАТЕЛЬНОСТЬЮ ИЛИ ИСТОРИЧЕСКИМ СОБЫТИЕМ НАШЕГО ГОРОДА, ИГРОКИ СОБИРАЮТ ИХ ДО КОНЦА ИГРЫ.\n5. ЕСЛИ ВАШ ХОД ПОПАДАЕТ НА ФИОЛЕТОВУЮ СТРЕЛКУ, ОНА ПОКАЗЫВАЕТ СКОЛЬКО ХОДОВ ВПЕРЕД МОЖНО СДЕЛАТЬ.\n6. КТО ПЕРВЫМ ПРИДЕТ К ФИНИШУ, ДОЛЖЕН ПОСЧИТАТЬ БОНУСНЫЕ СУНДУКИ. У КОГО БОЛЬШЕ, ТОТ И ВЫИГРАЛ.\n\nЭТА ИГРА ПОМОГАЕТ ДЕТЯМ ЗАПОМИНАТЬ НЕКОТОРЫЕ ИЗВЕСТНЫЕ ДОСТОПРИМЕЧАТЕЛЬНОСТИ И ИСТОРИЧЕСКИЕ ФАКТЫ ГОРОДА, В КОТОРОМ ОНИ ПРОЖИВАЮТ.",
+                        contentColor: "#ffffff"
                     }
                 ],
                 button: {

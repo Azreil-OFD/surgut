@@ -12,7 +12,7 @@ const LoginPage: React.FC = () => {
     const app = new AppService(loginId);
     const data = await app.load();
 
-    if (app.loaded) {
+    if (data) {
       localStorage.setItem('appServiceState', JSON.stringify(app.data));
       localStorage.setItem('isLoggedIn', 'true');
       navigate('/');
@@ -31,7 +31,7 @@ const LoginPage: React.FC = () => {
         placeholder="token"
       />
       <button onClick={handleLogin}>Login</button>
-      {error && <p>{error}</p>}
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 };

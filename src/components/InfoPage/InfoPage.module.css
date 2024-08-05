@@ -1,5 +1,4 @@
 .infoPage {
-    /* color: ; */
     font-weight: 900;
 }
 
@@ -30,22 +29,6 @@ body {
 
 .text {
     margin: 0;
-}
-
-.customButton {
-    background-size: cover;
-    background-position: center;
-    border: none;
-    border-radius: 80px;
-    min-width: 300px;
-    width: 21.5vw;
-    min-height: 100px;
-    height: 7.5vw;
-    position: relative;
-    /* display: none; */
-    top: 77vh;
-    font-size: 33px;
-    font-weight: 900;
 }
 
 @media screen and (max-width: 1900px) {

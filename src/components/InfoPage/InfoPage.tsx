@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styles from "./InfoPage.module.css";
-import { AppInterface } from '../../types/AppInterfaces'; // Import your AppInterface if needed
-import { useNavigate } from 'react-router-dom';
+import { AppInterface } from '../../types/AppInterfaces';
 
 const InfoPage: React.FC = () => {
   const [data, setData] = useState<AppInterface | null>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const savedData = localStorage.getItem("appServiceState");
@@ -20,10 +18,6 @@ const InfoPage: React.FC = () => {
     }
   }, []);
 
-  const toInfo = () => {
-    navigate('/')
-  }
-
   return (
     <div className={styles.infoPage}>
       {data ? (
@@ -34,7 +28,6 @@ const InfoPage: React.FC = () => {
             className={styles.backgroundImage}
           />
           <div className={styles.overlay}>
-            {/* <button onClick={toInfo}></button> */}
             {data.infoWindow.text.map((element, index) => (
               <p 
                 key={index} 

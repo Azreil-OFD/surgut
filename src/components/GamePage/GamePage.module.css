@@ -1,9 +1,9 @@
-.gamePage {
-    font-weight: 900;
-}
-
 body {
     overflow: hidden;
+}
+
+.gamePage {
+    font-weight: 900;
 }
 
 .backgroundImage {
@@ -18,21 +18,12 @@ body {
 
 .overlay {
     position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
     z-index: 1;
     color: white;
-    text-align: center;
-    font-size: min(calc(5px + 2vw), 30px);
     white-space: pre-wrap;
-    text-align: left;
-    margin: 2em 12% 0 12%;
-}
-
-.text {
-    margin: 0;
-}
-
-@media screen and (max-width: 1900px) {
-    .overlay {
-        font-size: min(calc(9px + 1vw), 30px);
-    }
 }

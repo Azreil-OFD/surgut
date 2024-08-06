@@ -1,9 +1,14 @@
-.infoPage {
-    font-weight: 900;
-}
-
 body {
     overflow: hidden;
+}
+
+.card {
+    position: relative;
+    width: 38.5%;
+    height: 0;
+    padding-bottom: 55.25%; /* Пропорции 16:9, измените по необходимости */
+    background-size: cover;
+    background-position: center;
 }
 
 .backgroundImage {
@@ -20,18 +25,5 @@ body {
     position: relative;
     z-index: 1;
     color: white;
-    font-size: min(calc(5px + 2vw), 30px);
     white-space: pre-wrap;
-    text-align: left;
-    margin: 2em 12% 0 12%;
-}
-
-.text {
-    margin: 0;
-}
-
-@media screen and (max-width: 1900px) {
-    .overlay {
-        font-size: min(calc(9px + 1vw), 30px);
-    }
 }

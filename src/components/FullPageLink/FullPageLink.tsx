@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link, LinkProps } from 'react-router';
 import styles from "./FullPageLink.module.css"
 
 interface FullPageLinkProps extends LinkProps {

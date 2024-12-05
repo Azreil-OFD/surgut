@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginPage from '../components/LoginPage';
-import { Navigate } from 'react-router-dom';
+import { Navigate } from "react-router";
 
 const Login: React.FC = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./HomePage.module.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import useSavedData from '../../hooks/useSavedData'; // Импортируйте ваш кастомный хук
 
 const HomePage: React.FC = () => {

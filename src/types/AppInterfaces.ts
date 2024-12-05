@@ -9,12 +9,12 @@ export interface MainScreen {
 
 export interface InfoWindow {
     background: string; // URL
-    text: Array<{
+    text: {
         title: string;
         titleColor: string;
         content: string;
         contentColor: string;
-    }>;
+    }[];
     button: {
         backgroundImage: string; // URL
         text: string;
@@ -23,21 +23,26 @@ export interface InfoWindow {
 }
 
 export interface GameWindow {
-    background: string; // URL
-    defaultCard1: string; // URL
-    defaultCard2: string; // URL
+    background: string;
+    defaultCard1: string;
+    defaultCard2: string;
     progressBarColor: string;
     progressBarTime: number; // in seconds
 }
 
-export interface CardsPool {
+export interface CardItem {
     id: string;
-    url: string; // URL
+    url: string;
+}
+
+export interface CardsPool {
+    questions: CardItem[];
+    answers: CardItem[];
 }
 
 export interface Cards {
-    firstPool: CardsPool[];
-    secondPool: CardsPool[];
+    firstPool: CardsPool;
+    secondPool: CardsPool;
 }
 
 export interface AppInterface {

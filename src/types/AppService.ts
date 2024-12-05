@@ -1,7 +1,7 @@
 import { AppInterface } from './AppInterfaces';
 
 class AppService {
-    private key: string | null = null;
+    private readonly key: string | null = null;
     public loaded: boolean = false;
     public data: AppInterface | null = null;
 
@@ -27,7 +27,7 @@ class AppService {
     private loadData(): AppInterface {
         return {
             mainScreen: {
-                background: "https://intelligent-shells.static.domains/Для%20Игры.jpg",
+                background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD2ZEAPmbDMsVf1-x9e0sIjZPGLyezaJrvPg&s",
                 button: {
                     backgroundImage: "https://www.somar.co.nz/assets/Uploads/Blog-Images/gradient-blog-featured__ScaleWidthWzE5MjBd.jpg",
                     text: "НАЧАТЬ",
@@ -35,7 +35,7 @@ class AppService {
                 }
             },
             infoWindow: {
-                background: "https://intelligent-shells.static.domains/2%202.jpg",
+                background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD2ZEAPmbDMsVf1-x9e0sIjZPGLyezaJrvPg&s",
                 text: [
                     {
                         title: "НАЗВАНИЕ ИГРЫ:",
@@ -63,21 +63,57 @@ class AppService {
                 }
             },
             gameWindow: {
-                background: "https://intelligent-shells.static.domains/3.jpg",
-                defaultCard1: "https://intelligent-shells.static.domains/2.jpg",
-                defaultCard2: "https://intelligent-shells.static.domains/1%202.jpg",
+                background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOb9ipa8iCs_j02kuwSCEqYAk1O-VLsQIqWA&s",
+                defaultCard1: "https://img.freepik.com/free-vector/blonde-cartoon-character-portrait_1308-174393.jpg",
+                defaultCard2: "https://img.freepik.com/free-vector/redhaired-boy-vector-illustration_1308-176689.jpg",
                 progressBarColor: "#ff00ff",
                 progressBarTime: 60
             },
             cards: {
-                firstPool: [
-                    { id: "1", url: "https://intelligent-shells.static.domains/1.jpg" },
-                    { id: "2", url: "https://intelligent-shells.static.domains/32.jpg" }
-                ],
-                secondPool: [
-                    { id: "1", url: "https://intelligent-shells.static.domains/2%203.jpg" },
-                    { id: "2", url: "https://intelligent-shells.static.domains/4.jpg" }
-                ]
+                firstPool: {
+                    questions: [
+                        {
+                            id: "1",
+                            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Question_in_a_question_in_a_question_in_a_question.gif/1200px-Question_in_a_question_in_a_question_in_a_question.gif"
+                        },
+                        {
+                            id: "2",
+                            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDFJmEEr0nYtZBtzSo5nRoiaU_MBfakBE_eQ&s"
+                        }
+                    ],
+                    answers: [
+                        {
+                            id: "1",
+                            url: "https://imo10.labirint.ru/books/617356/ph_001.jpg/960-0"
+                        },
+                        {
+                            id: "2",
+                            url: "https://basket-01.wbbasket.ru/vol48/part4825/4825258/images/big/7.webp"
+                        }
+                    ],
+                },
+                secondPool: {
+                    questions: [
+                        {
+                            id: "1",
+                            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Question_in_a_question_in_a_question_in_a_question.gif/1200px-Question_in_a_question_in_a_question_in_a_question.gif"
+                        },
+                        {
+                            id: "2",
+                            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDFJmEEr0nYtZBtzSo5nRoiaU_MBfakBE_eQ&s"
+                        }
+                    ],
+                    answers: [
+                        {
+                            id: "1",
+                            url: "https://imo10.labirint.ru/books/617356/ph_001.jpg/960-0"
+                        },
+                        {
+                            id: "2",
+                            url: "https://basket-01.wbbasket.ru/vol48/part4825/4825258/images/big/7.webp"
+                        }
+                    ],
+                },
             }
         };
     }

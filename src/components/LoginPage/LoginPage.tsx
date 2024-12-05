@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from "./LoginPage.module.css";
 import AppService from '../../types/AppService';
+import {useNavigate} from "react-router";
 
 const LoginPage: React.FC = () => {
   const [loginId, setLoginId] = useState('');

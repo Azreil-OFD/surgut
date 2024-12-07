@@ -1,29 +1,32 @@
-body {
+.card {
+    position: relative;
+    width: 500px; /* Общая ширина карточки */
+    height: 700px; /* Фиксированная высота карточки */
+    perspective: 1000px; /* Для эффекта переворота */
+    /*border-radius: 8px;*/
+    overflow: hidden;
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
+}
+
+.card > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /*border-radius: 8px;*/
     overflow: hidden;
 }
 
-.card {
-    position: relative;
-    width: 38.5%;
-    height: 0;
-    padding-bottom: 55.25%; /* Пропорции 16:9, измените по необходимости */
-    background-size: cover;
-    background-position: center;
-}
-
-.backgroundImage {
-    position: absolute;
-    top: 0;
-    left: 0;
+.card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    object-fit: cover; /* Картинка заполняет карточку, сохраняя пропорции */
 }
 
-.overlay {
-    position: relative;
-    z-index: 1;
-    color: white;
-    white-space: pre-wrap;
+.front,
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Цвет задника для лучшего отображения текста */
 }

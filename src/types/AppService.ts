@@ -6,14 +6,14 @@ class AppService {
     public data: AppInterface | null = null;
 
     private validateKey(key: string): boolean {
-        return Math.random() >= 0.5;
+        return Math.random() >= 0.5; // Замените на реальную логику проверки ключа
     }
 
     private verifyKey(key: string): boolean {
-        return Math.random() >= 0.5;
+        return Math.random() >= 0.5; // Замените на реальную логику проверки ключа
     }
-    
-    private isAppInterface(data: any): data is AppInterface {
+
+    private isAppInterface(data: AppInterface): data is AppInterface {
         return (
             data &&
             typeof data === 'object' &&
@@ -27,7 +27,7 @@ class AppService {
     private loadData(): AppInterface {
         return {
             mainScreen: {
-                background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD2ZEAPmbDMsVf1-x9e0sIjZPGLyezaJrvPg&s",
+                background: "https://i.ibb.co/ky7ScRh/main.png",
                 button: {
                     backgroundImage: "https://www.somar.co.nz/assets/Uploads/Blog-Images/gradient-blog-featured__ScaleWidthWzE5MjBd.jpg",
                     text: "НАЧАТЬ",
@@ -35,7 +35,7 @@ class AppService {
                 }
             },
             infoWindow: {
-                background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD2ZEAPmbDMsVf1-x9e0sIjZPGLyezaJrvPg&s",
+                background: "https://i.ibb.co/gWmBf5T/info.png",
                 text: [
                     {
                         title: "НАЗВАНИЕ ИГРЫ:",
@@ -63,32 +63,33 @@ class AppService {
                 }
             },
             gameWindow: {
-                background: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOb9ipa8iCs_j02kuwSCEqYAk1O-VLsQIqWA&s",
-                defaultCard1: "https://img.freepik.com/free-vector/blonde-cartoon-character-portrait_1308-174393.jpg",
-                defaultCard2: "https://img.freepik.com/free-vector/redhaired-boy-vector-illustration_1308-176689.jpg",
-                progressBarColor: "#ff00ff",
-                progressBarTime: 60
+                background: "https://i.ibb.co/4jvKPmM/Power-Clip-4.jpg",
+                defaultCard1: "https://i.ibb.co/C2qgx2h/tg-image-2007979517.png",
+                // defaultCard2: "https://img.freepik.com/free-vector/redhaired-boy-vector-illustration_1308-176689.jpg",
+                defaultCard2: "https://i.ibb.co/w050Zrq/tg-image-38279119.png",
+                progressBarColor: "#f4af4a",
+                progressBarTime: 5
             },
             cards: {
                 firstPool: {
                     questions: [
                         {
                             id: "1",
-                            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Question_in_a_question_in_a_question_in_a_question.gif/1200px-Question_in_a_question_in_a_question_in_a_question.gif"
+                            url: "https://i.ibb.co/v443126/question.png"
                         },
                         {
                             id: "2",
-                            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDFJmEEr0nYtZBtzSo5nRoiaU_MBfakBE_eQ&s"
+                            url: "https://i.ibb.co/v443126/question.png"
                         }
                     ],
                     answers: [
                         {
                             id: "1",
-                            url: "https://imo10.labirint.ru/books/617356/ph_001.jpg/960-0"
+                            url: "https://i.ibb.co/qCFQ0qy/answer.png"
                         },
                         {
                             id: "2",
-                            url: "https://basket-01.wbbasket.ru/vol48/part4825/4825258/images/big/7.webp"
+                            url: "https://i.ibb.co/qCFQ0qy/answer.png"
                         }
                     ],
                 },
@@ -96,21 +97,21 @@ class AppService {
                     questions: [
                         {
                             id: "1",
-                            url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Question_in_a_question_in_a_question_in_a_question.gif/1200px-Question_in_a_question_in_a_question_in_a_question.gif"
+                            url: "https://i.ibb.co/v443126/question.png"
                         },
                         {
                             id: "2",
-                            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDFJmEEr0nYtZBtzSo5nRoiaU_MBfakBE_eQ&s"
+                            url: "https://i.ibb.co/v443126/question.png"
                         }
                     ],
                     answers: [
                         {
                             id: "1",
-                            url: "https://imo10.labirint.ru/books/617356/ph_001.jpg/960-0"
+                            url: "https://i.ibb.co/qCFQ0qy/answer.png"
                         },
                         {
                             id: "2",
-                            url: "https://basket-01.wbbasket.ru/vol48/part4825/4825258/images/big/7.webp"
+                            url: "https://i.ibb.co/qCFQ0qy/answer.png"
                         }
                     ],
                 },

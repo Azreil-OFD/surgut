@@ -1,1 +1,1 @@
-export { default } from './InfoPage';
+export { default } from './Info.tsx';

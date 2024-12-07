@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import ProgressBar from "../components/ProgressBar.tsx";
 import useSavedData from "../hooks/useSavedData.ts";
-import Card from "../components/GamePage/Cards";
+import Card from "../components/Cards";
 
 const GamePage: React.FC = () => {
     const { data, isLoading, error } = useSavedData();
     const [progress, setProgress] = useState<number>(0);
+    const [activeCard, setActiveCard] = useState<string | null>(null); // Состояние активной карточки
 
     // Обработка состояния загрузки
     if (isLoading) {
@@ -35,13 +36,19 @@ const GamePage: React.FC = () => {
                     data={data.cards.firstPool}
                     image={data.gameWindow.defaultCard1}
                     setProgress={setProgress}
+                    setActiveCard={setActiveCard}
                     duration={duration}
+                    cardId="firstPool"
+                    activeCard={activeCard}
                 />
                 <Card
                     data={data.cards.secondPool}
                     image={data.gameWindow.defaultCard2}
                     setProgress={setProgress}
+                    setActiveCard={setActiveCard}
                     duration={duration}
+                    cardId="secondPool"
+                    activeCard={activeCard}
                 />
             </div>
 

@@ -1,12 +1,6 @@
 import React from 'react';
 import useSavedData from '../../hooks/useSavedData';
-
-const InfoText: React.FC<{ element: any }> = ({ element }) => (
-    <p className="m-0 text-white">
-        <span style={{ color: element.titleColor }}>{element.title}</span>
-        &nbsp;{element.content}
-    </p>
-);
+import InfoText from "./InfoText.tsx";
 
 const Info: React.FC = () => {
     const { data, isLoading, error } = useSavedData();

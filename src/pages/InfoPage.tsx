@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router";
-import Info from "../components/InfoPage";
+import Info from "../components/Info";
 
 const InfoPage: React.FC = () => {
     return (

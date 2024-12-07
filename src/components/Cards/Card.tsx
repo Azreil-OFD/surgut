@@ -1,16 +1,19 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import styles from './Card.module.css';
-import { CardItem, CardsPool } from '../../../types/AppInterfaces';
+import { CardItem, CardsPool } from '../../types/AppInterfaces.ts';
 
-interface Props {
+interface CardProps {
     data: CardsPool;
     image: string;
     setProgress?: (time: number) => void;
+    setActiveCard?: (id: string) => void;
     duration?: number;
+    cardId: string;
+    activeCard: string | null;
 }
 
-const Card: React.FC<Props> = ({ data, image, setProgress, duration }) => {
+const Card: React.FC<CardProps> = ({ data, image, setProgress, setActiveCard, duration, cardId, activeCard }) => {
     const [isFlipped, setIsFlipped] = useState(false);
     const [randomQuestion, setRandomQuestion] = useState<string>('');
 
@@ -20,21 +23,18 @@ const Card: React.FC<Props> = ({ data, image, setProgress, duration }) => {
     }, [data]);
 
     useEffect(() => {
-        let timer: NodeJS.Timeout | undefined;
-        let progressInterval: NodeJS.Timeout | undefined;
+        let timer: ReturnType<typeof setTimeout> | undefined;
+        let progressInterval: ReturnType<typeof setInterval> | undefined;
 
         if (isFlipped) {
+            // Устанавливаем случайный вопрос при переворачивании
             setRandomQuestion(getRandomQuestion());
 
-            if (duration && setProgress) {
+            if (activeCard === cardId && setProgress && duration) {
                 setProgress(0);
                 const startTime = Date.now();
 
-                timer = setTimeout(() => {
-                    setIsFlipped(false);
-                    setProgress(0);
-                }, duration);
-
+                // Обновляем прогресс только для активной карточки
                 progressInterval = setInterval(() => {
                     const elapsedTime = Date.now() - startTime;
                     if (elapsedTime >= duration) {
@@ -45,25 +45,39 @@ const Card: React.FC<Props> = ({ data, image, setProgress, duration }) => {
                     }
                 }, 100);
             }
-        } else if (setProgress) {
-            setProgress(0);
+
+            // Таймер переворачивания карточки обратно
+            timer = setTimeout(() => {
+                setIsFlipped(false);
+                if (activeCard === cardId && setProgress) {
+                    setProgress(0);
+                }
+            }, duration);
         }
 
         return () => {
             if (timer) clearTimeout(timer);
             if (progressInterval) clearInterval(progressInterval);
         };
-    }, [isFlipped, getRandomQuestion, duration, setProgress]);
+    }, [isFlipped, activeCard, cardId, duration, setProgress, getRandomQuestion]);
 
     const handleClick = () => {
-        setIsFlipped((prev) => !prev);
+        setIsFlipped((prev) => {
+            const newState = !prev;
+            if (newState && setActiveCard) {
+                setActiveCard(cardId); // Устанавливаем активную карточку
+            }
+            return newState;
+        });
     };
 
     return (
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal" containerClassName={styles.card}>
+            {/* Лицевая сторона карты */}
             <div className={`${styles.front}`} onClick={handleClick}>
                 <img src={image} alt="Front" />
             </div>
+            {/* Обратная сторона карты */}
             <div className={`${styles.back}`} onClick={handleClick}>
                 <img src={randomQuestion} alt="Back" />
             </div>

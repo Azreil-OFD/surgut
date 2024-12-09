@@ -49,6 +49,7 @@ const GamePage: React.FC = () => {
                     duration={duration}
                     cardId="secondPool"
                     activeCard={activeCard}
+                    skipAnswerStage={true}
                 />
             </div>
 

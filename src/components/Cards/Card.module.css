@@ -1,5 +1,6 @@
 .card {
     position: relative;
+    transition-duration: 2s;
     width: 500px; /* Общая ширина карточки */
     height: 700px; /* Фиксированная высота карточки */
     perspective: 1000px; /* Для эффекта переворота */

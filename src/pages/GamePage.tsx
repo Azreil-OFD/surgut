@@ -34,7 +34,7 @@ const GamePage: React.FC = () => {
             <div className="font-bold flex flex-row justify-evenly items-center h-full z-10 text-white whitespace-pre-wrap">
                 <Card
                     data={data.cards.firstPool}
-                    image={data.gameWindow.defaultCard1}
+                    defaultImage={data.gameWindow.defaultCard1}
                     setProgress={setProgress}
                     setActiveCard={setActiveCard}
                     duration={duration}
@@ -43,7 +43,7 @@ const GamePage: React.FC = () => {
                 />
                 <Card
                     data={data.cards.secondPool}
-                    image={data.gameWindow.defaultCard2}
+                    defaultImage={data.gameWindow.defaultCard2}
                     setProgress={setProgress}
                     setActiveCard={setActiveCard}
                     duration={duration}

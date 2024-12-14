@@ -1,50 +1,88 @@
-# React + TypeScript + Vite
+# Спецификация приложения "Карты Сургута"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание  
+Мобильное приложение с тремя интерактивными экранами. Основная функциональность — управление карточками с изображениями, а также настройка элементов интерфейса через серверную часть.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 1. Экран приветствия  
 
-## Expanding the ESLint configuration
+### **Функциональность**  
+- **Элементы экрана**:  
+  - Фон.  
+  - Кнопка с названием (текст и фон кнопки).  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Действия пользователя**:  
+  - По нажатию на кнопку происходит переход на следующий экран.  
 
-- Configure the top-level `parserOptions` property like this:
+- **Серверные настройки**:  
+  - Возможность изменить:  
+    - Фон экрана.  
+    - Текст на кнопке.  
+    - Фон кнопки.  
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 2. Экран с информацией  
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### **Функциональность**  
+- **Элементы экрана**:  
+  - Фон.  
+  - Блок с текстовой информацией:  
+    - Название игры.  
+    - Цель игры.  
+    - Инструкция (как играть).  
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Действия пользователя**:  
+  - Переход на следующий экран осуществляется по нажатию на экран.  
+
+- **Серверные настройки**:  
+  - Возможность изменить:  
+    - Фон экрана.  
+    - Название игры.  
+    - Цель игры.  
+    - Инструкцию.  
+
+---
+
+## 3. Экран с карточками  
+
+### **Функциональность**  
+#### **Общие элементы экрана**:  
+- Фон.  
+- Две карточки (карточка 1 и карточка 2).  
+
+#### **Логика работы карточек**:  
+- **Карточка 1**:  
+  1. Показывает стандартное изображение по умолчанию.  
+  2. Первое нажатие: карточка переворачивается и отображает первую картинку.  
+  3. Второе нажатие: карточка переворачивается и отображает вторую картинку.  
+  4. Третье нажатие: карточка закрывается и возвращается к стандартному изображению.  
+
+- **Карточка 2**:  
+  1. Показывает стандартное изображение по умолчанию.  
+  2. Первое нажатие: открывает случайное изображение.  
+  3. Второе нажатие: закрывается и возвращается к стандартному изображению.  
+
+- **Особенности**:  
+  - Обе карточки используют **пул случайных изображений**, заданный с сервера.  
+  - Изображения в пуле не повторяются.  
+
+#### **Логика автоматического возврата**:  
+- При бездействии на экране более **5 минут** (Tauri):
+  - Все карточки закрываются.  
+  - Происходит возврат на главный экран.  
+
+#### **Логика таймера для карточек**:  
+- После нажатия на карточку (не последнее нажатие):  
+  1. Запускается таймер.  
+  2. По истечении времени:  
+     - Если у карточки еще есть изображения, происходит автоматический переворот на следующую картинку.  
+     - Если у карточки изображения закончились, она закрывается.  
+
+#### **Серверные настройки**:  
+- Возможность изменить:  
+  - Пул изображений для каждой карточки.  
+  - Фон экрана.  
+  - Цвет текста.  
+  - Сам текст.  
